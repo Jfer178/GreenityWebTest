@@ -1,0 +1,39 @@
+<footer class="footer">
+  <div class="container">
+    <div class="footer-content">
+      <div class="footer-section">
+        <div class="footer-logo">
+          <img src="{{ url_for('static', filename='Img/LogoCompleto.jpg') }}" alt="Grennity Logo" />
+        </div>
+        <p class="footer-description">
+          Facilitamos el reciclaje responsable conectando a las comunidades con
+          puntos de reciclaje locales y educación ambiental.
+        </p>
+      </div>
+      <div class="footer-section">
+        <h3 class="footer-title">Enlaces</h3>
+        <ul class="footer-links">
+            <li><a href="{{ url_for('main') }}">inicio</a></li>
+          <li><a href="{{ url_for('mapa') }}">Mapa</a></li>
+          <li><a href="{{ url_for('edu') }}">Educativo</a></li>
+          <li><a href="{{ url_for('rec') }}">Sugerir Punto</a></li>
+          <li><a href="{{ url_for('contacto') }}">Contacto</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h3 class="footer-title">Soporte</h3>
+        <ul class="footer-links">
+          <li><a href="#" onclick="alert('Sección de Ayuda - Próximamente disponible')">Ayuda</a></li>
+          <li><a href="#" onclick="alert('Política de Privacidad - Próximamente disponible')">Privacidad</a></li>
+          <li><a href="#" onclick="alert('Términos de Servicio - Próximamente disponible')">Términos</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>
+        © 2025 Greenity. Todos los derechos reservados. Hecho con
+        <i class="fas fa-heart"></i> para el planeta.
+      </p>
+    </div>
+  </div>
+</footer>
