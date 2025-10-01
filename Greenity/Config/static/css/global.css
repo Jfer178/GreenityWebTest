@@ -1,0 +1,62 @@
+/* Estilos globales compartidos entre todas las páginas */
+
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #fff;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Container compartido */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Espaciado para que el footer no se superponga al contenido */
+main, .main-content {
+    flex: 1;
+}
+
+/* Utilidades generales */
+.text-center {
+    text-align: center;
+}
+
+.text-green {
+    color: #22c55e;
+}
+
+.bg-green {
+    background-color: #22c55e;
+}
+
+.highlight {
+    color: #22c55e;
+}
+
+/* Transiciones suaves */
+a, button {
+    transition: all 0.3s ease;
+}
+
+/* Enlaces básicos */
+a {
+    color: #22c55e;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}

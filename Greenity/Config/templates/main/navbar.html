@@ -1,0 +1,58 @@
+<!-- Header -->
+<header class="header">
+    <div class="container">
+        <div class="logo">
+            <img src="{{ url_for('static', filename='img/LogoNavBar.jpg') }}" alt="Grennity Logo">
+        </div>
+        <nav class="nav">
+            <a href="{{ url_for('main') }}" class="nav-item {% if request.path == url_for('main') %}active{% endif %}">
+                <i class="fas fa-home"></i>
+                Inicio
+            </a>
+            <a href="{{ url_for('mapa') }}" class="nav-item {% if request.path == url_for('mapa') %}active{% endif %}">
+                <i class="fas fa-map"></i>
+                Mapa
+            </a>
+            <a href="{{ url_for('edu') }}" class="nav-item {% if request.path == url_for('edu') %}active{% endif %}">
+                <i class="fas fa-book"></i>
+                Educativo
+            </a>
+            <a href="{{ url_for('rec') }}" class="nav-item {% if request.path == url_for('rec') %}active{% endif %}">
+                <i class="fas fa-plus"></i>
+                Sugerir Punto
+                <span class="new-badge">Nuevo</span>
+            </a>
+            <a href="{{ url_for('contacto') }}" class="nav-item {% if request.path == url_for('contacto') %}active{% endif %}">
+                <i class="fas fa-phone"></i>
+                Contacto
+            </a>
+            <a href="{{ url_for('config') }}" class="nav-item {% if request.path == url_for('config') %}active{% endif %}">
+                <i class="fas fa-cog"></i>
+                Configuración
+            </a>
+            {% if session.user_authenticated %}
+            <div class="user-menu">
+                <div class="user-info">
+                    <i class="fas fa-user-circle"></i>
+                    <span class="user-name">{{ session.user_email.split('@')[0] }}</span>
+                </div>
+                <div class="user-dropdown">
+                    <a href="{{ url_for('config') }}" class="dropdown-item">
+                        <i class="fas fa-cog"></i>
+                        Mi Perfil
+                    </a>
+                    <a href="{{ url_for('logout') }}" class="dropdown-item">
+                        <i class="fas fa-sign-out-alt"></i>
+                        Cerrar Sesión
+                    </a>
+                </div>
+            </div>
+            {% else %}
+            <a href="{{ url_for('index') }}" class="login-btn">
+                <i class="fas fa-user"></i>
+                Iniciar Sesión
+            </a>
+            {% endif %}
+        </nav>
+    </div>
+</header>

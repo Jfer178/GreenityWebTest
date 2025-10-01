@@ -1,0 +1,7 @@
+flask
+flask_sqlalchemy
+flask_marshmallow
+marshmallow
+pymysql
+requests==2.31.0
+beautifulsoup4==4.12.3
