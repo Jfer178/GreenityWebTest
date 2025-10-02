@@ -1,6 +1,8 @@
 from flask import Flask, request, jsonify, redirect, render_template, session, abort
 from Config.db import app
 import secrets
+import json
+import os
 
 # La clave secreta ya está configurada en db.py
 
@@ -112,6 +114,65 @@ def register():
 def logout():
     session.clear()
     return redirect("/")
+
+# API para obtener datos de puntos de reciclaje
+@app.route("/api/puntos-reciclaje")
+def get_puntos_reciclaje():
+    """Endpoint para obtener los datos del scraping de puntos de reciclaje"""
+    try:
+        # Ruta al archivo JSON generado por el scraping
+        json_file_path = os.path.join(os.path.dirname(__file__), 'puntos_reciclaje_barranquilla.json')
+        
+        # Verificar si el archivo existe
+        if not os.path.exists(json_file_path):
+            return jsonify({
+                "success": False,
+                "error": "Archivo de datos no encontrado",
+                "data": []
+            }), 404
+        
+        # Leer y retornar los datos
+        with open(json_file_path, 'r', encoding='utf-8') as f:
+            data = json.load(f)
+        
+        return jsonify(data)
+    
+    except Exception as e:
+        return jsonify({
+            "success": False,
+            "error": f"Error al cargar datos: {str(e)}",
+            "data": []
+        }), 500
+
+@app.route("/api/ejecutar-scraping", methods=['POST'])
+def ejecutar_scraping():
+    """Endpoint para ejecutar el scraping y actualizar los datos"""
+    try:
+        # Importar y ejecutar el scraper
+        from scraping import RecyclingPointsScraper
+        
+        scraper = RecyclingPointsScraper()
+        data = scraper.scrape()
+        
+        if data.get('success'):
+            # Guardar los datos actualizados
+            scraper.save_to_json(data)
+            return jsonify({
+                "success": True,
+                "message": "Scraping ejecutado exitosamente",
+                "estadisticas": data.get('estadisticas', {})
+            })
+        else:
+            return jsonify({
+                "success": False,
+                "error": data.get('error', 'Error desconocido')
+            }), 500
+    
+    except Exception as e:
+        return jsonify({
+            "success": False,
+            "error": f"Error ejecutando scraping: {str(e)}"
+        }), 500
 
 if __name__ == "__main__":
     app.run(debug=True, port=5000, host='0.0.0.0')

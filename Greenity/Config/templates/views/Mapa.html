@@ -110,6 +110,18 @@
                     <i class="fas fa-filter"></i>
                     Aplicar Filtros
                 </button>
+                
+                <!-- Update Data Button -->
+                <button class="update-data-btn" id="update-data-btn" style="margin-top: 10px; width: 100%; background: #3b82f6; color: white; border: none; padding: 12px; border-radius: 8px; cursor: pointer; font-size: 14px;">
+                    <i class="fas fa-sync-alt"></i>
+                    Actualizar Datos
+                </button>
+                
+                <!-- Data Status -->
+                <div class="data-status" id="data-status" style="margin-top: 10px; padding: 10px; border-radius: 6px; font-size: 12px; display: none;">
+                    <i class="fas fa-info-circle"></i>
+                    <span id="status-text"></span>
+                </div>
             </aside>
 
             <!-- Mapa Section -->
@@ -207,50 +219,7 @@
                     </div>
                 </div>
 
-                <!-- Ecopunto Belgrano -->
-                <div class="point-card" data-type="empresas">
-                    <div class="point-header">
-                        <div class="point-icon">
-                            <i class="fas fa-recycle"></i>
-                        </div>
-                        <div class="point-info">
-                            <h3 class="point-name">Ecopunto Belgrano</h3>
-                            <p class="point-address">Calle Belgrano 567, Belgrano</p>
-                            <div class="point-status">
-                                <span class="distance">1.2 km</span>
-                                <span class="status open">• Abierto</span>
-                            </div>
-                        </div>
-                        <div class="point-rating">
-                            <i class="fas fa-star"></i>
-                            <span>4.2</span>
-                        </div>
-                    </div>
-                    <div class="point-materials">
-                        <span class="material-tag">Papel</span>
-                        <span class="material-tag">Cartón</span>
-                        <span class="material-tag">Pilas</span>
-                        <span class="material-tag">Electrónicos</span>
-                    </div>
-                    <div class="point-schedule">
-                        <i class="fas fa-clock"></i>
-                        <span>Lun-Dom: 24 horas</span>
-                    </div>
-                    <div class="point-actions">
-                        <button class="action-btn primary">
-                            <i class="fas fa-paper-plane"></i>
-                            Cómo llegar
-                        </button>
-                        <button class="action-btn">
-                            <i class="fas fa-phone"></i>
-                            Llamar
-                        </button>
-                        <button class="action-btn">
-                            <i class="fas fa-info-circle"></i>
-                            Ver detalles
-                        </button>
-                    </div>
-                </div>
+                
 
                 <!-- Centro comercial -->
                 <div class="point-card" data-type="centros">
